@@ -37,22 +37,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders', # corsheaders
+    'corsheaders',  # corsheaders
     'rest_framework',
+    # own app
+    'authx',
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # corsheaders
+    'corsheaders.middleware.CorsMiddleware',  # corsheaders
+    'django.middleware.locale.LocaleMiddleware',  # i18n
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'authx.middleware.SetLastUserLoggin',  # nasz nowy middleware
 ]
 
 ROOT_URLCONF = 'djangomono.urls'
+AUTH_USER_MODEL = 'authx.CustomUser'  # zastępujemy domyślną klase użytkownika
 
 TEMPLATES = [
     {
@@ -88,7 +94,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -112,6 +117,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    ('pl', 'polish'),
+    ('en', 'english'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
+
 
 TIME_ZONE = 'UTC'
 
@@ -133,11 +147,15 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'authx.authentication.TokenAuthentication'
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
-
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'test@test.com'
