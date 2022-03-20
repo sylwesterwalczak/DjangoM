@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # own app
     'authx',
-
+    'supplier',
+    'story',
 ]
 
 MIDDLEWARE = [
