@@ -9,7 +9,7 @@ class Ingredient(models.Model):
     )
     name = models.CharField(max_length=50, null=False, blank=False)
     sku_nubmer = models.CharField(max_length=50, null=False, blank=False)
-    quantity = models.IntegerField(default=0)
+    quantity = models.PositiveIntegerField(default=0)
     supplier = models.ForeignKey(
         'supplier.Supplier',
         on_delete=models.SET_NULL,

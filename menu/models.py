@@ -22,7 +22,8 @@ class MenuItem(models.Model):
     price_net = models.DecimalField(max_digits=6, decimal_places=2)
     ingredients = models.ManyToManyField(
         Component,
-        blank=True
+        blank=True,
+        related_name='component'
     )
     tax = models.DecimalField(max_digits=4, decimal_places=2, default=23)
 
