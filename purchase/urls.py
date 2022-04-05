@@ -18,5 +18,4 @@ urlpatterns = [
          PurchseListView.as_view(), name='purchase_list'),
     path('purchase-cancel/<int:pk>/',
          CancellingPurchase.as_view(), name='purchase_cancel'),
-    
 ]

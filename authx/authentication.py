@@ -1,9 +1,8 @@
 import json
 
-from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 
-from rest_framework import HTTP_HEADER_ENCODING, authentication
 from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed, ValidationError
 
@@ -13,11 +12,15 @@ User = get_user_model()
 
 
 class TokenAuthentication(BaseAuthentication):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    """
+    The correct verification returns a tuple (user token)
+    """
 
     def authenticate(self, request):
+        """
+        Authenticate the request and return a two-tuple of (user, token).
+        """
+
         token = request.META.get('HTTP_AUTHORIZATION')
 
         if token is None:
@@ -42,6 +45,9 @@ class TokenAuthentication(BaseAuthentication):
         return self.get_user(validated_token), validated_token
 
     def get_user(self, validated_token):
+        """
+        Method that returns a user based on a token.
+        """
 
         res = json.loads(validated_token)
         try:

@@ -9,7 +9,7 @@ from .common import ROLES
 class CustomUserMenager(BaseUserManager):
     def create_user(self, username, email, password=None):
         if not email:
-            raise ValueError('Users must have an email address')
+            raise ValueError(_('Users must have an email address'))
 
         user = self.model(
             username=username,
@@ -69,6 +69,9 @@ class CustomUserMenager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    """
+    Main user class.
+    """
 
     username = models.CharField(max_length=100, unique=True)
     first_name = models.CharField(max_length=150, blank=True)
@@ -99,31 +102,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     @property
     def full_name(self):
         return '{} {} {}'.format(self.first_name, self.last_name, self.pk)
-
-    @property
-    def token(self):
-        """
-        Allows us to get a user's token by calling `user.token` instead of
-        `user.generate_jwt_token().
-
-        The `@property` decorator above makes this possible. `token` is called
-        a "dynamic property".
-        """
-        return self._generate_jwt_token()
-
-    def _generate_jwt_token(self):
-        """
-        Generates a JSON Web Token that stores this user's ID and has an expiry
-        date set to 60 days into the future.
-        """
-        dt = datetime.now() + timedelta(days=60)
-
-        token = jwt.encode({
-            'id': self.pk,
-            'exp': int(dt.strftime('%s'))
-        }, settings.SECRET_KEY, algorithm='HS256')
-
-        return token.decode('utf-8')
 
     def __str__(self):
         return str(self.full_name)

@@ -13,15 +13,24 @@ def defaultconverter(o):
 
 
 def decode_jwt(input):
+    """
+    Token decryption function.
+    """
     return base64.urlsafe_b64decode(input).decode("utf-8")
 
 
 def base64url_encode(input):
+    """
+    Encoding function using base64.
+    """
     bytesString = input.encode('ascii')
     return base64.urlsafe_b64encode(bytesString).decode('utf-8')
 
 
 def create_jwt(payload):
+    """
+    Function creating token.
+    """
 
     header = {
         "alg": "HS256",

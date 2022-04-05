@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-15 17:05+0000\n"
+"POT-Creation-Date: 2022-04-05 17:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,70 +20,124 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: authx/authentication.py:33
+#: authx/authentication.py:36
 msgid "Authorization header must contain three space-delimited values"
 msgstr "Nagłówek autoryzacji musi zawierać trzy wartości rozdzielone spacjami"
 
-#: authx/authentication.py:50
-msgid "No user id"
-msgstr ""
-
 #: authx/authentication.py:56
-msgid "User not found"
-msgstr ""
+msgid "No user id"
+msgstr "Brak identyfikatora użytkownika"
 
-#: authx/authentication.py:60
+#: authx/authentication.py:62
+msgid "User not found"
+msgstr "Nie znaleziono użytkownika"
+
+#: authx/authentication.py:66
 msgid "User is inactive"
-msgstr ""
+msgstr "Użytkownik jest nieaktywny"
 
 #: authx/common.py:4
 msgid "Cashier"
-msgstr ""
+msgstr "Kasjer"
 
 #: authx/common.py:5
 msgid "Barista"
-msgstr ""
+msgstr "Barista"
 
 #: authx/common.py:6
 msgid "Manager"
-msgstr ""
+msgstr "Kierownik"
 
 #: authx/common.py:7
 msgid "Owner"
+msgstr "Właściciel"
+
+#: authx/models.py:12
+msgid "Users must have an email address"
 msgstr ""
 
-#: authx/models.py:80
+#: authx/models.py:83
 msgid "Is active User"
-msgstr ""
-
-#: authx/models.py:85
-msgid "User role"
-msgstr ""
+msgstr "Jest aktywny Użytkownik"
 
 #: authx/models.py:88
-msgid "User Join Date"
-msgstr ""
+msgid "User role"
+msgstr "Rola użytkownika"
 
 #: authx/models.py:91
+msgid "User Join Date"
+msgstr "Data dołączenia użytkownika"
+
+#: authx/models.py:94
 msgid "Last loggin Date"
-msgstr ""
+msgstr "Data ostatniego logowania"
 
 #: authx/viewsets.py:43
 msgid "Activate your blog account."
-msgstr ""
+msgstr "Aktywuj swoje konto na blogu."
 
 #: authx/viewsets.py:72
 msgid "User not found!"
-msgstr ""
+msgstr "Nie znaleziono użytkownika!"
 
 #: authx/viewsets.py:75
 msgid "Incorrect password!"
-msgstr ""
+msgstr "Nieprawidłowe hasło!"
 
 #: authx/viewsets.py:101
 msgid "Thank you for your email confirmation. Now you can login your account."
-msgstr ""
+msgstr "Dziękujemy za potwierdzenie wysłane pocztą elektroniczną. Teraz możesz zalogować się na swoje konto."
 
 #: authx/viewsets.py:103
 msgid "Activation link is invalid!"
+msgstr "Link aktywacyjny jest nieprawidłowy!"
+
+#: purchase/models.py:15
+msgid "New"
+msgstr "Nowy"
+
+#: purchase/models.py:16
+msgid "Pending"
+msgstr "W trakcie realizacji"
+
+#: purchase/models.py:17
+msgid "Ready"
+msgstr "Gotowe"
+
+#: purchase/models.py:18
+msgid "Retrieved"
+msgstr "Pobrano"
+
+#: purchase/models.py:19
+msgid "Canceled"
+msgstr "Anulowane"
+
+#: purchase/serializers.py:47
+msgid "No ingredients"
+msgstr "Brak składników"
+
+#: story/models.py:7
+msgid "ml"
+msgstr "ml"
+
+#: story/models.py:8
+msgid "g"
+msgstr "g"
+
+#: supplier/models.py:16
+msgid ""
+"Phone number must be entered in the format: '00000000000000'.             Up "
+"to 15 digits allowed."
 msgstr ""
+
+#: utils/mixins.py:20
+msgid "Created"
+msgstr "Utworzono"
+
+#: utils/mixins.py:22
+msgid "Updated"
+msgstr "Aktualizowane"
+
+#: utils/mixins.py:24
+msgid "Deleted"
+msgstr "Usunięto"

@@ -20,12 +20,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',  # corsheaders
     'rest_framework',
+    'drf_yasg',
+
     # own app
     'authx',
     'supplier',
     'story',
     'menu',
-    'purchase'
+    'purchase',
 ]
 
 MIDDLEWARE = [
@@ -123,4 +125,4 @@ REST_FRAMEWORK = {
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'test@test.com'
+DEFAULT_FROM_EMAIL = 'me@sylwesterwalczak.pl'

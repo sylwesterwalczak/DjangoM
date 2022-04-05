@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from authx.permissions import MenuViewPermission
+from utils.mixins import CustomLoggingViewSetMixin
 
 
 from .serializers import (
@@ -18,7 +19,7 @@ from .serializers import (
 from .models import Menu, MenuItem, Component
 
 
-class MenuView(ModelViewSet):
+class MenuView(CustomLoggingViewSetMixin, ModelViewSet):
 
     queryset = Menu.objects.all()
     permission_classes = [MenuViewPermission]
@@ -36,7 +37,7 @@ class MenuView(ModelViewSet):
             return MenuSerializer
 
 
-class MenuItemView(ModelViewSet):
+class MenuItemView(CustomLoggingViewSetMixin, ModelViewSet):
 
     queryset = MenuItem.objects.all()
     permission_classes = [MenuViewPermission]
@@ -54,7 +55,7 @@ class MenuItemView(ModelViewSet):
             return MenuItemSerializer
 
 
-class ComponentView(ModelViewSet):
+class ComponentView(CustomLoggingViewSetMixin, ModelViewSet):
 
     queryset = Component.objects.all()
     permission_classes = [MenuViewPermission]

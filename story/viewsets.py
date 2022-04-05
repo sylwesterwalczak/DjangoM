@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from authx.permissions import IsBaristaUser
+from utils.mixins import CustomLoggingViewSetMixin
 
 from .serializers import (
     BaristaIngredientSerializer,
@@ -8,7 +9,7 @@ from .serializers import (
 from .models import Ingredient
 
 
-class IngredientViewSet(ModelViewSet):
+class IngredientViewSet(CustomLoggingViewSetMixin, ModelViewSet):
 
     queryset = Ingredient.objects.all()
     permission_classes = [IsBaristaUser]

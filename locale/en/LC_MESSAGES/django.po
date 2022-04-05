@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-15 17:05+0000\n"
+"POT-Creation-Date: 2022-04-05 17:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: authx/authentication.py:33
+#: authx/authentication.py:36
 msgid "Authorization header must contain three space-delimited values"
 msgstr ""
 
-#: authx/authentication.py:50
+#: authx/authentication.py:56
 msgid "No user id"
 msgstr ""
 
-#: authx/authentication.py:56
+#: authx/authentication.py:62
 msgid "User not found"
 msgstr ""
 
-#: authx/authentication.py:60
+#: authx/authentication.py:66
 msgid "User is inactive"
 msgstr ""
 
@@ -50,19 +50,23 @@ msgstr ""
 msgid "Owner"
 msgstr ""
 
-#: authx/models.py:80
+#: authx/models.py:12
+msgid "Users must have an email address"
+msgstr ""
+
+#: authx/models.py:83
 msgid "Is active User"
 msgstr ""
 
-#: authx/models.py:85
+#: authx/models.py:88
 msgid "User role"
 msgstr ""
 
-#: authx/models.py:88
+#: authx/models.py:91
 msgid "User Join Date"
 msgstr ""
 
-#: authx/models.py:91
+#: authx/models.py:94
 msgid "Last loggin Date"
 msgstr ""
 
@@ -84,4 +88,54 @@ msgstr ""
 
 #: authx/viewsets.py:103
 msgid "Activation link is invalid!"
+msgstr ""
+
+#: purchase/models.py:15
+msgid "New"
+msgstr ""
+
+#: purchase/models.py:16
+msgid "Pending"
+msgstr ""
+
+#: purchase/models.py:17
+msgid "Ready"
+msgstr ""
+
+#: purchase/models.py:18
+msgid "Retrieved"
+msgstr ""
+
+#: purchase/models.py:19
+msgid "Canceled"
+msgstr ""
+
+#: purchase/serializers.py:47
+msgid "No ingredients"
+msgstr ""
+
+#: story/models.py:7
+msgid "ml"
+msgstr ""
+
+#: story/models.py:8
+msgid "g"
+msgstr ""
+
+#: supplier/models.py:16
+msgid ""
+"Phone number must be entered in the format: '00000000000000'.             Up "
+"to 15 digits allowed."
+msgstr ""
+
+#: utils/mixins.py:20
+msgid "Created"
+msgstr ""
+
+#: utils/mixins.py:22
+msgid "Updated"
+msgstr ""
+
+#: utils/mixins.py:24
+msgid "Deleted"
 msgstr ""

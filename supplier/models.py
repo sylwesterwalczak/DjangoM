@@ -13,8 +13,8 @@ class Supplier(models.Model):
     phone_regex = RegexValidator(
         regex=r'^[\d+]{4,15}$',
         message=_(
-            "Phone number must be entered in the format: '00000000000000'. \
-            Up to 15 digits allowed.")
+            _("Phone number must be entered in the format: '00000000000000'. \
+            Up to 15 digits allowed."))
     )
     phone_number = models.CharField(
         validators=[phone_regex],

@@ -14,6 +14,7 @@ from rest_framework.mixins import (
 )
 from rest_framework.views import APIView
 from authx.permissions import IsCashierUser
+from utils.mixins import CustomLoggingViewSetMixin
 from .serializers import (
     CreatePurchaseOrderSerializer,
     PurchaseOrderSerializer,
@@ -23,7 +24,15 @@ from .serializers import (
 from .models import PurchaseOrder
 
 
-class PurchseListView(ListAPIView):
+class PurchseListView(CustomLoggingViewSetMixin, ListAPIView):
+    """
+    PurchseListView
+
+    Returns the list of current orders.
+
+    /users?status=1,2,3
+
+    """
     serializer_class = ListPurchaseOrderSerializer
     permission_classes = [AllowAny]
 
@@ -38,13 +47,18 @@ class PurchseListView(ListAPIView):
         return queryset
 
 
-class PurchseViewSet(
-        CreateModelMixin,
-        ListModelMixin,
-        RetrieveModelMixin,
-        UpdateModelMixin,
-        GenericViewSet
-):
+class PurchseViewSet(CustomLoggingViewSetMixin,
+                     CreateModelMixin,
+                     ListModelMixin,
+                     RetrieveModelMixin,
+                     UpdateModelMixin,
+                     GenericViewSet):
+
+    """
+    PurchseViewSet
+
+    """
+
     queryset = PurchaseOrder.objects.all()
     permission_classes = [IsCashierUser]
 
@@ -55,7 +69,7 @@ class PurchseViewSet(
             return PurchaseOrderSerializer
 
 
-class CancellingPurchase(APIView):
+class CancellingPurchase(CustomLoggingViewSetMixin, APIView):
     permission_classes = [IsCashierUser]
 
     def _get_purchase_id(self):

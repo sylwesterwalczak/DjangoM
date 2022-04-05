@@ -12,11 +12,11 @@ User = get_user_model()
 
 class PurchaseOrder(models.Model):
     STATUS_CHOICE = (
-        (1, _("New")),  # nowe
-        (2, _("Pending")),  # w przygotowaniu
-        (3, _("Ready")),  # w gotowe
-        (4, _("Retrieved")),  # w gotowe
-        (5, _("Canceled")),  # w gotowe
+        (1, _("New")),  #Nowe
+        (2, _("Pending")),  #W przygotowaniu
+        (3, _("Ready")),  #Gotowe
+        (4, _("Retrieved")),  # Odebrane
+        (5, _("Canceled")),  # Anulowane
     )
     items = models.ManyToManyField("menu.MenuItem")
     status = models.PositiveIntegerField(
